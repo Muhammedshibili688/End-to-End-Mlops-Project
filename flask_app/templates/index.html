@@ -74,8 +74,8 @@
         </form>
 
         {% if result is not none %}
-            <div class="result {% if result == 1 %}positive{% else %}negative{% endif %}">
-                {% if result == 1 %}
+            <div class="result {% if result == 0 %}positive{% else %}negative{% endif %}">
+                {% if result == 0 %}
                     😊 Positive Sentiment
                 {% else %}
                     😞 Negative Sentiment
