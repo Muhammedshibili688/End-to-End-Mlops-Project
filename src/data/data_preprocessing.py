@@ -17,6 +17,8 @@ def preprocess_dataframe(df, col = 'text'):
     """
     lemmatizer = WordNetLemmatizer()
     stop_words = set(stopwords.words("english"))
+    negation_words = {"not", "no", "nor", "dont", "didnt", "isnt", "wasnt", "shouldnt", "wouldnt", "couldnt"}
+    stop_words = stop_words - negation_words
 
     def preprocess_text(text):
         "Help to process single text"

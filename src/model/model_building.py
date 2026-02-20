@@ -44,6 +44,8 @@ def main():
         train_data = load_data("./datas/processed/train_bow.csv")
         x_train = train_data.iloc[:,:-1]#.values
         y_train = train_data.iloc[:,-1]#.values
+        print("Class distribution:")
+        print(y_train.value_counts(normalize=True))
 
         clf = train_model(x_train, y_train)
         save_model(clf, './models/model.pkl')

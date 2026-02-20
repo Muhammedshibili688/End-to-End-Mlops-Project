@@ -101,7 +101,7 @@ def save_metrics(metrics:dict, file_path:str)-> None:
     """Save the evaluation metrics to a JSON file"""
     try:
         with open(file_path,"w") as file:
-            json.dump(metrics, file,indent = 4)
+            json.dump(metrics, file, indent = 4)
         logging.info("Metrics saved to %s: ", file_path)
     except Exception as e:
         logging.error("Error occurred while saving the metrics: %s", e)
