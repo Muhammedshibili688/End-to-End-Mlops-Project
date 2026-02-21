@@ -100,6 +100,7 @@ def evaluate_model(clf, x_test:np.array, y_test:np.array)-> dict:
 def save_metrics(metrics:dict, file_path:str)-> None:
     """Save the evaluation metrics to a JSON file"""
     try:
+        os.makedirs(os.path.dirname(file_path), exist_ok=True)
         with open(file_path,"w") as file:
             json.dump(metrics, file, indent = 4)
         logging.info("Metrics saved to %s: ", file_path)
