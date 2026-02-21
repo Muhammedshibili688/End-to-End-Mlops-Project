@@ -210,6 +210,3 @@ cred.txt
 notebooks/
 local_s3/
 datas/
-models/
-*.pkl
-reports/

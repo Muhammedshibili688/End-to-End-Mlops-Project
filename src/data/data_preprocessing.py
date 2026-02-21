@@ -43,7 +43,7 @@ def preprocess_dataframe(df, col = 'text'):
 
     # droping col with Nan values
     df = df.dropna(subset = [col])
-    logging.info("Preprocessing comleted")
+    logging.info("Preprocessing completed")
     return df
 
 def main():
