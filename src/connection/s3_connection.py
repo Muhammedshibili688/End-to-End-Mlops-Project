@@ -5,8 +5,8 @@ import logging
 from io import StringIO
 
 # Configure logging
-# logging.Basic config(level = logging.info)
-# logger = logging.getlogger(__name__)
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
 class s3_operations:
     "Initialize s3 operations with aws credentials"

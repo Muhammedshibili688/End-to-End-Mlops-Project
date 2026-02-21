@@ -44,6 +44,10 @@ def apply_bow(train_data: pd.DataFrame, test_data:pd.DataFrame, max_features: in
         logging.info("Applying now...")
         vectorizer = CountVectorizer(max_features = max_features)
 
+        model_dir = "models"
+        os.makedirs(model_dir, exist_ok=True)
+        vectorizer_path = os.path.join(model_dir, "vectorizer.pkl")
+
         x_train = train_data['review'].values
         x_test = test_data['review'].values
         y_train = train_data['sentiment'].values
@@ -58,9 +62,13 @@ def apply_bow(train_data: pd.DataFrame, test_data:pd.DataFrame, max_features: in
         test_df = pd.DataFrame(x_test_bow.toarray())
         test_df['label'] = y_test
 
-        pickle.dump(vectorizer, open('models/vectorizer.pkl', 'wb'))
+        with open(vectorizer_path, "wb") as f:
+            pickle.dump(vectorizer, f)
+        # pickle.dump(vectorizer, open('models/vectorizer.pkl', 'wb'))
         logging.info('Bag of words applied and data transformed')
+        
         return train_df, test_df
+    
     except Exception as e:
         logging.error("Error during Bag of words tranformation: %s", e)
         raise
