@@ -209,7 +209,7 @@ __marimo__/
 cred.txt
 notebooks/
 local_s3/
-# datas
-# models/
+datas/
+models/
 *.pkl
 reports/
